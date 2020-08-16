@@ -1,0 +1,55 @@
+// 함수 선언 방식은 아래와 같다.
+
+function showMessage () {
+  alert("안녕하세요!");
+}
+
+// 매개변수가 있다면 괄호 안에 넣어주며, 매개변수가 여러개일 경우는 콤마로 구분한다.
+
+function name(parameter1, parameter2, ...) {
+  ... 함수 본문...
+}
+
+// 함수 호출
+showMessage();
+
+// 지역 변수
+// 함수 내에서 선언한 변수는 지역 변수(local variable)이라고 하며, 
+// 함수 안에서만 접근 할 수 있다.
+
+function showMessage() {
+  let message = "안녕하세요";  //-->> 지역변수 선언
+  
+  alert(message);
+}
+
+showMessage();    //-->> 안녕하세요
+
+alert(message);   //-->> 에러 발생
+
+// 외부 변수  -->> 전역변수이며 최소한으로 사용하는 것이 좋음.
+// 함수 내부에서 아래와 같은 방법으로 함수 외부의 변수에 접근할 수 있다.
+
+let userName = "John";
+
+function showMessage() {
+  let message = "Hello, " + userName;
+  alert(message);
+}
+
+// 외부 변수를 함수 내부에서 수정할 수도 있다.
+
+let userName = "John";
+
+function showMessage() {
+  userName = "Bob";   // 외부변수를 내부에서 수정한다.
+  
+  let message = "Hello, " + userName;
+  alert(message);
+}
+
+alert(userName);    // 함수 호출 전이므로 수정 전 "John" 출력
+
+showMessage();
+
+alert(userName);    //-->> Bob
