@@ -40,3 +40,29 @@ let welcome = (age < 18) ?
 };
 
 alert( sum(1, 2) );     //-->> 3
+
+
+
+// 문제
+// 아래의 함수를 화살표 함수를 이용하여 수정하라.
+
+function ask(question, yes, no) {
+  if (confirm(question)) yes()
+  else no();
+}
+
+ask(
+  "동의하십니까?",
+  function() { alert("동의하셨습니다."); },
+  function() { alert("취소 버튼을 누르셨습니다."); }
+);
+
+// 내가 푼 풀이 
+
+let question = confirm("동의하시겠습니까?");
+
+let ask = question ? 
+() => alert("동의하셨습니다.") :
+() => alert("취소하셨습니다.");
+
+ask();
