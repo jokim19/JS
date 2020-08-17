@@ -1,0 +1,42 @@
+// 화살표 함수
+// 화살표 함수를 이용해서 아래의 함수를 축약해보자 
+
+let func = function(arg1, arg2, ... argN) {
+  return expression;
+}
+
+let func = (arg1, arg2, ... argN) => expression   // 화살표 함수 버젼
+
+// 괄호 안에 인수를 넣고 화살표 다음 반환할 값을 넣는다. 
+// 만약 인수가 하나라면 괄호를 생략할 수도 있다.
+
+let double = n => n * 2;
+
+alert( double(3) );   //-->> 6 
+
+// 인수가 하나도 없다면 괄호를 비어둔다. 단, 생략할 수는 없다.
+
+let sayHi = () => alert("안녕하세요!");
+
+sayHi();
+
+예시)
+ 
+let age = prompt("나이를 알려주세요", 18);
+
+let welcome = (age < 18) ?
+ () => alert("안녕!") :         //-->> 삼항조건 사용, 매개변수가 필요없기 때문에 비어둔다. 
+ () => alert("안녕하세요!");
+ 
+ welcome();
+ 
+ 
+ // 본문이 여러 줄인 화살표 함수
+ // 본문이 길다면 중괄호를 사용하여 본문을 구성하며 return 지시자를 명시하여 결과값을 반드시 반환해주어야 한다.
+ 
+ let sum = (a, b) => {
+  let result = a + b;
+  return result;
+};
+
+alert( sum(1, 2) );     //-->> 3
