@@ -1,0 +1,38 @@
+// 함수 표현식
+// 아래의 함수 선언식을 표현식으로 바꾸어 보자.  -->> 스크립트에서 함수는 특별한 값이기 때문에 가능
+
+function sayHi() {
+  alert("Hello");
+}
+
+let sayHi = function() {
+  alert("Hello");
+};
+
+// 함수는 값이기 때문에 alert를 이용해서 함수 코드를 출력할 수 있다.
+
+function sayHi() {
+  alert("Hello");
+}
+
+alert(sayHi);   //-->> 함수 코드가 보인다. 함수 실행을 위해서는 괄호가 필요하지만 해당문에서는 실행되지 않음.
+
+// 위와 같이 함수는 값이기 때문에 가능한 것이 한가지 더 있다. 
+// 변수를 복사해 다른 변수에 담는 것 처럼, 함수를 복사해 다른 변수에 담는 것도 가능하다. 
+
+function sayHi() {    // ① 함수 생성
+  alert("Hello");
+}
+
+let func = sayHi;     // ② 함수 복사(만약 sayHi 뒤에 괄호를 붙인다면 함수 호출결과 값이 복사되니 주의!)
+
+func(); //-->> Hello  // ③ 복사한 함수를 실행
+sayHi(); //-->> Hello // 본래 함수도 실행된다.
+
+// 함수 sayHi는 아래와 같은 함수 표현식으로 정의할 수 있다.
+
+let sayHi = function() {
+  alert("Hello");
+};                    //-- >> 함수 표현식 끝에는 구문의 끝이기 때문에 세미콜론이 붙는다.
+
+let func = sayHi;
