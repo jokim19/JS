@@ -1,0 +1,35 @@
+// 콜백 함수
+
+function ask(question, yes, no) {
+  if (confirm(question)) yes()
+  else no();
+}
+
+function showOk() {
+  alert("동의하셨습니다");
+}
+
+function showCancle() {
+  alert("취소 버튼을 누르셨습니다.");
+}
+
+ask("동의하십니까?", showOk, showCancle);
+
+// 위와 같이 함수 ask의 인수인 showOk와 showCancle은 콜백 함수 또는 콜백이라고 한다.
+// 함수를 함수의 인수로 전달하고, 필요하면 인수로 전달한 그 함수를 나중에 호출하는 것.
+// 위 예시에서는 사용자가 "yes"라고 대답할 경우 showOk가 콜백되고 "no"라고 대답할 경우
+// showCancle이 콜백된다.
+
+// 아래와 같이 함수 표현식으로 코드 길이를 짧게 만들수도 있다.
+
+function ask(question, yes, no) {
+  if(confirm(question)) yes()
+  else no();
+}
+
+ask(
+  "동의하십니까?",
+  function () { alert("동의하셨습니다") },
+  function () { alert("취소 버튼을 누르셨습니다.); }  // 각 구문 끝에 세미콜론 빠짐없이!
+  );                                            // ask 안에 선언된 이름 없는 함수는
+                                                // 익명함수라고 부르며 ask 바깥에선 접근 불가하다.
